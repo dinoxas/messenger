@@ -16,7 +16,7 @@ const Chat = ({ location }) => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
-  const ENDPOINT = "localhost:5000";
+  const ENDPOINT = "https://dinoxas-react-messenger.herokuapp.com";
 
   // location coming from router prop
   useEffect(() => {
