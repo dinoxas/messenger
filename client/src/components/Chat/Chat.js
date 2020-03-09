@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import queryString from "query-string";
 import io from "socket.io-client";
+import InfoBar from "../InfoBar/InfoBar";
+import Input from "../Input/Input";
+import Messages from "../Messages/Messages";
 import "./Chat.css";
 
 let socket;
@@ -8,6 +11,9 @@ let socket;
 const Chat = ({ location }) => {
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
+  const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState([]);
+
   const ENDPOINT = "localhost:5000";
 
   // location coming from router prop
@@ -15,9 +21,10 @@ const Chat = ({ location }) => {
     const { name, room } = queryString.parse(location.search);
 
     socket = io(ENDPOINT);
-
-    setName(name);
+    console.log("name: ", name);
     setRoom(room);
+    setName(name);
+
     //callback coming from server
     socket.emit("join", { name, room }, () => {});
 
@@ -27,9 +34,34 @@ const Chat = ({ location }) => {
     };
   }, [ENDPOINT, location.search]);
 
+  useEffect(() => {
+    // coming from admin generated emit(message) in server/index.js
+    socket.on("message", message => {
+      // keeping all the existing messages intact and add new message
+      setMessages([...messages, message]);
+    });
+  }, [messages]);
+
+  const sendMessage = event => {
+    event.preventDefault();
+    if (message) {
+      socket.emit("sendMessage", message, () => setMessage(""));
+    }
+  };
+
+  console.log("message: ", message, "messages: ", messages);
+
   return (
-    <div>
-      <h1>Chat</h1>
+    <div className="outerContainer">
+      <div className="container">
+        <InfoBar room={room} />
+        <Messages messages={messages} name={name} />
+        <Input
+          message={message}
+          setMessage={setMessage}
+          sendMessage={sendMessage}
+        />
+      </div>
     </div>
   );
 };
