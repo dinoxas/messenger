@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaReact } from "react-icons/fa";
+import { MdChat } from "react-icons/md";
 import "./Join.css";
 
 const Join = () => {
@@ -9,7 +11,17 @@ const Join = () => {
   return (
     <div className="joinOuterContainer">
       <div className="joinInnerContainer">
-        <h1 className="heading">Join</h1>
+        <div>
+          <h1 className="main-heading">
+            React Chat Application
+            <span role="img" aria-label="emoji"></span>
+          </h1>
+          <div className="icons">
+            <FaReact size="80" color="#00d8ff" />{" "}
+            <MdChat color="#fff" size="80" />
+          </div>
+        </div>
+        <h2 className="heading">Join</h2>
         <div>
           <input
             placeholder="Your name..."

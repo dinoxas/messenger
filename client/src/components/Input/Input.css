@@ -22,7 +22,9 @@ select:focus {
   text-transform: uppercase;
   text-decoration: none;
   background: #2979ff;
-  padding: 20px;
+  padding: 10px;
+
+  cursor: pointer;
   display: inline-block;
   border: none;
   width: 20%;

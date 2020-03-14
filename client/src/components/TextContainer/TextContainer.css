@@ -23,10 +23,15 @@
 }
 
 .textContainer h1 {
-  margin-bottom: 0px;
+  margin: 0;
 }
 
-@media (min-width: 320px) and (max-width: 1200px) {
+.textContainer .icons {
+  margin-top: 30px;
+  text-align: center;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
   .textContainer {
     display: none;
   }
