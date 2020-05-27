@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -27,9 +27,21 @@ body {
 }
 
 .joinInput {
-  border-radius: 0;
-  padding: 15px 20px;
+  border-radius: 5px;
+  border: 0;
+  padding: 10px;
   width: 100%;
+  font-size: 0.85rem;
+  -webkit-appearance: none;
+  border: 2px;
+  border-style: solid;
+  border-color: white;
+  transition: all 0.2s linear;
+}
+
+.joinInput:focus {
+  box-shadow: 0 0 10px #7e57c2;
+  border-color: #7e57c2;
 }
 
 .main-heading {
@@ -38,7 +50,7 @@ body {
 
 .heading {
   color: white;
-  font-size: 2.5em;
+  font-size: 2.2em;
   padding-bottom: 10px;
   border-bottom: 2px solid white;
 }
@@ -47,13 +59,22 @@ body {
   color: #fff !important;
   text-transform: uppercase;
   text-decoration: none;
-  background: #2979ff;
+  background: #7e57c2;
   cursor: pointer;
-  padding: 20px;
+  padding: 12px;
   border-radius: 5px;
   display: inline-block;
   border: none;
   width: 100%;
+  text-shadow: 0 1px 1px #333;
+  font-size: 1.2rem;
+  transition: all 0.2s linear;
+  -webkit-appearance: none;
+}
+
+.button:hover,
+.button:focus {
+  background: #673ab7;
 }
 
 .mt-20 {

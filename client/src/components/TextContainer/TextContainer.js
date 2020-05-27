@@ -1,18 +1,21 @@
-import React from "react";
-import onlineIcon from "../../icons/onlineIcon.png";
-import "./TextContainer.css";
+import React from 'react';
+import onlineIcon from '../../icons/onlineIcon.png';
+import { AiOutlineWechat } from 'react-icons/ai';
+import './TextContainer.css';
 
 const TextContainer = ({ users }) => (
-  <div className="textContainer">
+  <div className='textContainer'>
     {users ? (
       <div>
-        <h1>People currently chatting:</h1>
-        <div className="activeContainer">
+        <h1>
+          <AiOutlineWechat size='30' color='#b39ddb' /> People in this chat:
+        </h1>
+        <div className='activeContainer'>
           <h2>
             {users.map(({ name }) => (
-              <div key={name} className="activeItem">
+              <div key={name} className='activeItem'>
                 {name}
-                <img alt="Online Icon" src={onlineIcon} />
+                <img alt='Online Icon' src={onlineIcon} />
               </div>
             ))}
           </h2>

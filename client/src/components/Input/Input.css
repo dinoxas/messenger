@@ -6,9 +6,9 @@
 .input {
   border: none;
   border-radius: 0;
-  padding: 5%;
-  width: 80%;
-  font-size: 1.2em;
+  padding: 15px;
+  font-size: 0.9rem;
+  flex: 1;
 }
 
 input:focus,
@@ -21,11 +21,22 @@ select:focus {
   color: #fff !important;
   text-transform: uppercase;
   text-decoration: none;
-  background: #2979ff;
-  padding: 10px;
-
+  background: #7e57c2;
+  text-shadow: 0 1px 1px #333;
   cursor: pointer;
   display: inline-block;
   border: none;
-  width: 20%;
+  width: 50px;
+  padding: 10px;
+  transition: all 0.2s linear;
+  -webkit-appearance: none;
+}
+
+.sendButton:hover,
+.sendButton:focus {
+  background: #673ab7;
+}
+
+.sendButton > svg {
+  margin-top: 5px;
 }
